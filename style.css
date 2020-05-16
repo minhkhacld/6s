@@ -23,6 +23,10 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     height: 100%;    
 }
+.row{
+    margin: 8px;
+    padding: 8px;
+}
 h1{    
     color: #030063 !important;    
     margin-top: 10px !important;
