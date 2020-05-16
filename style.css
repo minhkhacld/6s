@@ -15,7 +15,7 @@
         /* float: inline-end !important;       */
     }
     .row{
-    margin: 0px 8px 0px 8px;
+    margin: 0px 8px 0px 8px !important;
 /*     padding: 0px 8px 0px 8px; */
 }
    
