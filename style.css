@@ -24,8 +24,8 @@
     height: 100%;    
 }
 .row{
-    margin: 8px;
-    padding: 8px;
+    margin: 0px 8px 0px 8px;
+    padding: 8px0px 8px 0px 8px;
 }
 h1{    
     color: #030063 !important;    
