@@ -1,607 +1,116 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>6S SCORE SYSTEM</title>
-    <!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="style.css">
-    <!-- 
-    Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
 
-    <!-- Optional theme -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css"
-        integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
-    <!-- 
-    Latest compiled and minified JavaScript -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
-        integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
-        crossorigin="anonymous"></script>
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
 </head>
-
 <body>
 
-    <div class="container">
-        <div class="row" class="header">
-            <h1>6S CHECK LIST</h1>
-        </div>
+<h2>Login Form</h2>
 
+<form action="" method="post">
+  <div class="imgcontainer">
+    <img src="img_avatar2.png" alt="Avatar" class="avatar">
+  </div>
 
-        <form id="test-form" name="myForm"
-            action="https://script.google.com/macros/s/AKfycbza-efIKa52sWFr_5uAryUDLik91nwWLTGv1DpRztOtjHv86ald/exec"
-            method="GET">
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
 
-            <!-- Nhập Date -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="">Nhập ngày/Date</label>
-                    <input type="date" class="form-control" name="Date" id="" aria-describedby="helpId"
-                        placeholder="Nhập Ngày" required>
-                </div>
-            </div>
-            <!-- Nhập Khu vực -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="">Khu vực/Factory</label>
-                    <select class="form-control" name="Factory" id="" required>
-                        <option value="">Chọn khu vực</option>
-                        <option value="P2">P2</option>
-                        <option value="P3">P3</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Nhập line -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="">Tên Chuyền/Line</label>
-                    <input type="text" class="form-control" name="Line" id="line" aria-describedby="helpId"
-                        placeholder="Nhập số chuyền" required>
-                </div>
-            </div>
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+        
+    <button type="submit" onclick="check(form)">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
 
-            <!-- S1 SANG LOC -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S1 - SÀNG LỌC (SORT)</h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
+  <div class="container" style="background-color:#f1f1f1">
+    <button type="button" class="cancelbtn">Cancel</button>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr name="S1_A">
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Những thiết bị, công cụ, đồ dùng không
-                                        cần thiết xuất hiện tại nơi làm việc...</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true" name="S1_A" value="value"></td> -->
-                                    <td><input type="text" name="S1_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Những thứ không cần thiết xuất hiện
-                                        trên
-                                        tường,bảng thông tin…</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true" name="S1_B"></td> -->
-                                    <td><input type="text" name="S1_B"></td>
-
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Vật dụng/rác/đồ vật/nguyên liệu xuất
-                                        hiện
-                                        trên lối đi, cầu thang,góc tường…</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true" name="S1_C"></td> -->
-                                    <td><input type="text" name="S1_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Vật dụng/rác/đồ vật/nguyên liệu xuất
-                                        hiện
-                                        trên lối đi, cầu thang,góc tường…</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true" name="S1_D"></td> -->
-                                    <td><input type="text" name="S1_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Hàng tồn kho,thiết bị, phụ tùng hoặc
-                                        nguyên liệu không cần thiết xuất hiện…</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true" name="S1_E"></td> -->
-                                    <td><input type="text" name="S1_E"></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- S2 SAP SEP -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S2 - SẮP SẾP (SET IN ORDER)
-                </h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Nơi để vật không được nhận thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Mọi thứ không ở đúng chỗ và không được
-                                        sắp
-                                        xếp</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_B"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Lối đi, nơi làm việc, nơi để các thiết
-                                        bị
-                                        không được nhận thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Sàn nhà, cầu thang, hành lang bị cản
-                                        trở
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Không có nơi riêng để đặt các dụng cụ
-                                        vệ
-                                        sinh</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_E"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">6</td>
-                                    <td class="pt-7-half" contenteditable="false">Các thiết bị/công cụ/những vật cần
-                                        thiết
-                                        không được sắp xếp và nhận thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_F"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">7</td>
-                                    <td class="pt-7-half" contenteditable="false">Những thiết bị, dụng cụ, đồ dùng không
-                                        cần
-                                        thiết không được sắp xếp và nhận thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_G"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">8</td>
-                                    <td class="pt-7-half" contenteditable="false">Đồ dùng cá nhân không để đúng nơi quy
-                                        định
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_H"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">9</td>
-                                    <td class="pt-7-half" contenteditable="false">Rác thải không được phân loại</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_I"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">10</td>
-                                    <td class="pt-7-half" contenteditable="false">Bình chữa cháy bị che khuất</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_J"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">11</td>
-                                    <td class="pt-7-half" contenteditable="false">Đồ dùng vệ sinh không đặt đúng nơi quy
-                                        định) (giấy, xà phòng,xô nước, đồ rửa bát) , máy sấy không hoạt động đúng chức
-                                        năng.
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S2_K"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- S3 SACH SE -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S3 - SẠCH SẼ (SHINE)</h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Sàn nhà, trần, tường, hành lang, cầu
-                                        thang
-                                        và bề mặt sàn không được có bụi, dầu, mỡ và trong điều kiện tốt</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Các thiết bị/ dụng cụ/ vật dụng cần
-                                        thiết
-                                        không sạch sẽ và có bụi bẩn, dầu, mỡ và không trong điều kiện tốt</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_B"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Dụng cụ vệ sinh không được sử dụng
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Các đường kẻ, nhãn, bảng tín hiệu bị
-                                        dơ
-                                        hoặc bị hỏng</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Những vấn đề vệ sinh khác (bất cứ vấn
-                                        đề
-                                        gì) xuất hiện</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_E"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">6</td>
-                                    <td class="pt-7-half" contenteditable="false">Ghế, bàn bị dơ hoặc không trong điều
-                                        kiện
-                                        tốt</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_F"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">7</td>
-                                    <td class="pt-7-half" contenteditable="false">Nơi để vật dụng bị dơ hoặc không trong
-                                        điều kiện tốt</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S3_G"></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- S4 TIEU CHUAN HOA -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S4 - SĂN SÓC (STANDARDIZE)</h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Thông tin cần thiết không hiển thị
-                                        hoặc
-                                        không cập nhật</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Tất cả các tiêu chuẩn không được phổ
-                                        biến
-                                        & không được tiếp thu</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_B"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Không có sẵn/không cập nhật đối với
-                                        việc
-                                        kiểm tra thực hiện vệ sinh & bảo trì máy móc</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Mọi con số & giới hạn không được nhận
-                                        thấy
-                                        một cách dễ dàng (Kho, kho thành phẩm, sản xuất</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Bao nhiêu vật dụng không tìm thấy được
-                                        trong vòng 30s</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_E"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">6</td>
-                                    <td class="pt-7-half" contenteditable="false">Nhân viên không mặc đồn phục đúng qui
-                                        định
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_F"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">7</td>
-                                    <td class="pt-7-half" contenteditable="false">Sắp xếp chuyền không đúng theo tiêu
-                                        chuẩn
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_G"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">8</td>
-                                    <td class="pt-7-half" contenteditable="false">Sàn nhà, cầu thang không được lập sơ
-                                        đồ rõ
-                                        ràng.</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_H"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">9</td>
-                                    <td class="pt-7-half" contenteditable="false">Bình chữa cháy không được lập sơ đồ rõ
-                                        ràng & không được nhìn thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S4_I"></td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- S5 SÀNG LỌC -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S5 - SÀN LỌC (SUSTAIN)</h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Những thiết bị, dụng cụ, đồ dụng không
-                                        cần
-                                        thiết đang hiện diện</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Vật dụng/ rác/ những thứ khác/ nguyên
-                                        vật
-                                        liệu đang hiện diện trên lối đi, cầu thang, góc tường và…</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Vật dụng không đặt đúng chỗ của chúng
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_B"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Vật dụng không được sắp xếp</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Khu vực không được giữ sạch sẽ</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">6</td>
-                                    <td class="pt-7-half" contenteditable="false">Số lượng & giới hạn không dễ dàng nhận
-                                        thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_E"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">7</td>
-                                    <td class="pt-7-half" contenteditable="false">Đồ dùng cá nhân không để đúng nơi quy
-                                        định
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_F"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">8</td>
-                                    <td class="pt-7-half" contenteditable="false">Những dụng cụ cần thiết không hiện
-                                        diện
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_G"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">9</td>
-                                    <td class="pt-7-half" contenteditable="false">Những bảng hiển thị không được áp dụng
-                                        &
-                                        cập nhật.</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S5_H"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- S6 AN TOÀN -->
-            <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">S6 - AN TOÀN (SAFETY)</h3>
-                <div class="card-body">
-                    <div id="table" class="table-editable">
-                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
-                                    class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
-                        <table class="table table-bordered table-responsive-md table-striped text-center">
-                            <thead>
-                                <tr>
-                                    <th class="text-center">STT</th>
-                                    <th class="text-center">Vấn đề/ problem</th>
-                                    <th class="text-center">Số vấn đề tìm thấy/ No# of problem found</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">1</td>
-                                    <td class="pt-7-half" contenteditable="false">Liệu tất cả những lối thoát hiểm có
-                                        được
-                                        lập sơ đồ và chỉ dẫn rõ ràng cho mọi người hay không?</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_A"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">2</td>
-                                    <td class="pt-7-half" contenteditable="false">Liệu có bao nhiêu khu vực nguy hiểm
-                                        chưa
-                                        được lập sơ đồ hay không?</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_B"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">3</td>
-                                    <td class="pt-7-half" contenteditable="false">Đèn báo động có hoạt động đúng chức
-                                        năng
-                                        không?</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_C"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">4</td>
-                                    <td class="pt-7-half" contenteditable="false">Không có máy dò khói thuốc (Trong khu
-                                        vực
-                                        chung)</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_D"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">5</td>
-                                    <td class="pt-7-half" contenteditable="false">Không có chuông báo cháy</td>
-                                        <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_E"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">6</td>
-                                    <td class="pt-7-half" contenteditable="false">Dây dẫn điện và những mối nối không an
-                                        toàn có thể được nhìn thấy</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_F"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">7</td>
-                                    <td class="pt-7-half" contenteditable="false">Hộp công tắc không được đóng và không
-                                        ở
-                                        trong điều kiện tốt</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_G"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">8</td>
-                                    <td class="pt-7-half" contenteditable="false">Bảng pannel không được đóng (chỉ người
-                                        có
-                                        phận sự mới được đến gần)</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_H"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">9</td>
-                                    <td class="pt-7-half" contenteditable="false">Sự trang bị thuốc men không đầy đủ
-                                    </td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_I"></td>
-                                </tr>
-                                <tr>
-                                    <td class="pt-1-half" contenteditable="false">10</td>
-                                    <td class="pt-7-half" contenteditable="false">Những mối đe dọa đến sự an toàn (nước,
-                                        dầu, hóa chất, vận hành máy móc)</td>
-                                    <!-- <td class="pt-1-half" contenteditable="true"></td> -->
-                                    <td><input type="text" name="S6_J"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-            <!-- Submit -->
-            <div class="row">
-                <button type="submit" id="btn" class="btn">Đồng ý</button>
-            </div>
-
-        </form>
-
-
-
-        <div class="row">
-            <h6><i class="fas fa-user-tie" style="margin: 5px 3px; color:white;font-size: 13px;"></i>IE.Khapham <i
-                    class="fas fa-phone" style="margin: 5px 3px; color:white;font-size: 13px;"></i> 0355210716 <i
-                    class="far fa-envelope" style="margin: 5px 3px; color:white; font-size: 13px;"></i>pmkha92@gmail.com
-            </h6>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
-        <script src="scroll.js" type="text/javascript"></script>
+<script language="javascript">
+  function check(form)/*function to check userid & password*/
+  {
+   /*the following code checkes whether the entered userid and password are matching*/
+   if(form.uname.value == "username" && form.psw.value == "password01")
+    {
+      // window.location('index.html')/*opens the target page while Id & password matches*/
+      window.open('score.html')
+      
+    }
+   else
+   {
+     alert("Nhập sai tên đăng nhập hoặc mật khẩu");/*displays error message*/
+    //  window.reload();
+     location.reload();
+    }
+  }
+  </script>
 </body>
-
 </html>
